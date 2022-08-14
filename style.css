@@ -1,0 +1,264 @@
+@import url("https://use.typekit.net/fip0bjy.css");
+
+*, *::before, 
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+	/* 1rem = 10px; 1.1rem = 11px; etc. */
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-size: 2rem;
+    font-family: 'bai-jamjuree', sans-serif;
+    font-weight: 300;
+}
+
+h1, h3 {
+    font-weight: 500;
+}
+
+a, a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-transform: uppercase;
+}
+
+
+/* main grid layout */
+.wrapper {
+    display: grid;
+    grid-template-rows: 8rem calc(100vh - 8rem);
+    grid-template-columns: 35rem auto;
+    grid-template-areas:
+        'header header'
+        'sidebar main';
+}
+
+/*grid-items*/
+header {
+    grid-area: header;
+    font-family: bai-jamjuree;
+    font-size: 2.2rem;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+main {
+    grid-area: main;
+}
+
+/*header-styling*/
+header {
+    padding: 1rem 3rem 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 5px 10px 0 rgba(90, 90, 90, 0.3);
+    z-index: 1;
+    background-color: rgb(3, 2, 12);
+}
+
+.primary-navbar a {
+    color: white!important;
+}
+
+.primary-navbar, .primary-navbar li, .primary-navbar ul {
+    display: inline;
+}
+
+.logo {
+    display: inline;
+    height: 100%;
+}
+
+.primary-navbar li {
+    margin-left: 3rem;
+}
+
+header .current {
+    font-weight: bolder;
+    color: rgb(147, 192, 254)!important;
+}
+
+/*sidebar-styling*/
+
+.sidebar {
+    background-color: rgb(30, 32, 33);
+    overflow: auto;
+    color: rgb(147, 192, 254);
+}
+
+
+.toggle-nav {
+    outline: none;
+    display: none;
+}
+
+.label {
+    display: none;
+}
+
+.burger {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.topics {
+    width: 100%;
+}
+
+.topic-title {
+    font-size: 1.8rem;
+    text-align: left;
+    padding: 1rem 15rem 1rem 3rem;
+    white-space: nowrap;
+    color: rgb(147, 192, 254);
+    width: 100%;
+}
+
+.topic-title > a {
+    color: rgb(147, 192, 254);
+    font-weight: bold;
+    width: 100%;
+}
+.topic-items > li {
+    padding: 1rem 1rem 1rem 3rem;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.topic-title:nth-child(1) {
+    margin-top: 5rem;
+}
+
+.topic-items {
+    padding: 1rem 0 1rem 0;
+    font-size: 1.6rem;
+    width: 100%;
+}
+
+/*main styling*/
+main {
+    padding: 5rem 10rem 4rem 10rem;
+    text-align: justify;
+    overflow: auto;
+    line-height: 3rem;
+    background-color: rgb(30, 32, 33);
+    color: white;
+}
+
+h1, h3, h6 {
+    padding: 1rem 0 1rem 0;
+    text-align: left;
+    color:rgb(147, 192, 254);
+}
+
+main > p {
+    padding: 2rem 0 2rem 0;
+}
+
+.overview ol {
+    list-style-position: inside;
+    padding: 1rem 0 1rem 0;
+}
+
+@media (max-width: 768px)  {
+    html {
+        font-size: 45%;
+    }    
+
+    /* main grid layout */
+    .wrapper {
+        grid-template-rows: 8rem minmax(4rem, 1fr) calc(100vh - 12rem);
+        grid-template-columns: unset;
+        grid-template-areas:
+        'header header'
+        'sidebar sidebar'
+        'main main';
+    }
+
+    /* header styling */
+    header {
+        padding: 1rem 2.5rem 1rem 2.5rem;
+    }
+
+    .primary-navbar li {
+        margin-left: 1.2rem;
+    }
+
+    /* secondary menu styling */
+    .label {
+        display: inline;
+    }
+
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+        padding: 2rem 2.5rem 2rem 2.5rem;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+        background-color: rgb(147, 192, 254);
+    }
+
+    .topics {
+        max-height: 0;
+        overflow: hidden;
+        transition: all ease-in-out 0.7s;
+    }
+
+    .topic-title {
+        padding: 1rem 0 1rem 0;
+        color: black;
+    }
+
+    .topic-title > a {
+        color: black;
+    }
+    .topic-items > li {
+        padding: 1rem 0 1rem 0;
+        white-space: nowrap;
+    }
+    
+    .topic-title:nth-child(1) {
+        margin-top: 2rem;
+    }
+    
+    .topic-items {
+        padding: 1rem 0 1rem 0;
+    }
+
+    .sidebar input:checked ~ .topics {
+        max-height: 150vh;
+    }
+
+    /* main styling */
+
+    main {
+        padding: 3rem 2.5rem 3rem 2.5rem;
+    }
+
+    h3 {
+        white-space: nowrap;
+    }
+
+    a, a:visited {
+        color: black;
+    }
+
+}
